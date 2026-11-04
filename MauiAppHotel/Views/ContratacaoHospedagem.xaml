@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
+             Title="ContratacaoHospedagem"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Gray950}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,30"
+                             Spacing="20">
+
+            <VerticalStackLayout Spacing="5">
+
+                <Label Text="Cálculo da Diária"
+                       FontFamily="Kalam"
+                       FontSize="42"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Gray100}"/>
+
+                <Label Text="Informe os dados para sua hospedagem"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Gray300}"/>
+
+            </VerticalStackLayout>
+
+            <Border Padding="18"
+                    Stroke="{StaticResource Gray600Brush}"
+                    StrokeThickness="1"
+                    Background="{StaticResource Gray900Brush}">
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="18"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="20">
+
+                    <VerticalStackLayout Spacing="12">
+
+                        <Label Text="Hóspedes"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray100}"/>
+
+                        <Grid RowDefinitions="Auto, Auto"
+                              ColumnDefinitions="*, *, 2*"
+                              RowSpacing="15">
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Adultos:"
+                                   TextColor="{StaticResource Gray200}"
+                                   VerticalOptions="Center"/>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding Value}"
+                                   BindingContext="{x:Reference stp_adultos}"
+                                   TextColor="{StaticResource Gray100}"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+
+                            <Stepper Grid.Row="0"
+                                     Grid.Column="2"
+                                     x:Name="stp_adultos"
+                                     Minimum="0"
+                                     Maximum="10"
+                                     Increment="1"
+                                     BackgroundColor="{StaticResource Gray600}"/>
+
+                            <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Crianças:"
+                                   TextColor="{StaticResource Gray200}"
+                                   VerticalOptions="Center"/>
+
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Value}"
+                                   BindingContext="{x:Reference stp_criancas}"
+                                   TextColor="{StaticResource Gray100}"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"/>
+
+                            <Stepper Grid.Row="1"
+                                     Grid.Column="2"
+                                     x:Name="stp_criancas"
+                                     Minimum="0"
+                                     Maximum="10"
+                                     Increment="1"
+                                     BackgroundColor="{StaticResource Gray600}"/>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                    <BoxView HeightRequest="1"
+                             Color="{StaticResource Gray600}"/>
+
+                    <Border Padding="14"
+                            Stroke="{StaticResource Gray600Brush}"
+                            StrokeThickness="1"
+                            Background="{StaticResource Gray600Brush}">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout Spacing="12">
+
+                            <Label Text="Escolha sua Suíte"
+                                   TextTransform="Uppercase"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Gray100}"/>
+
+                            <Picker x:Name="pck_quarto"
+                                    Title="Selecione sua Acomodação"
+                                    TitleColor="{StaticResource Gray300}"
+                                    TextColor="{StaticResource White}"/>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <Border Padding="14"
+                            Stroke="{StaticResource Gray600Brush}"
+                            StrokeThickness="1"
+                            Background="{StaticResource Gray600Brush}">
+
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12"/>
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout Spacing="15">
+
+                            <Label Text="Período da Estadia"
+                                   TextTransform="Uppercase"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Gray100}"/>
+
+                            <VerticalStackLayout Spacing="5">
+
+                                <Label Text="Check-in:"
+                                       TextColor="{StaticResource Gray200}"/>
+
+                                <DatePicker x:Name="dtpck_checkin"
+                                            Format="dd/MM/yyyy"
+                                            TextColor="{StaticResource White}"/>
+
+                            </VerticalStackLayout>
+
+                            <VerticalStackLayout Spacing="5">
+
+                                <Label Text="Check-out:"
+                                       TextColor="{StaticResource Gray200}"/>
+
+                                <DatePicker x:Name="dtpck_checkout"
+                                            Format="dd/MM/yyyy"
+                                            TextColor="{StaticResource White}"/>
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <Button Text="Avançar"
+                            BackgroundColor="{StaticResource Gray100}"
+                            TextColor="{StaticResource Gray950}"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CornerRadius="12"
+                            HeightRequest="52"/>
+
+                    <Button Text="Sobre o aplicativo"
+                            BackgroundColor="{StaticResource Gray600}"
+                            TextColor="{StaticResource Gray100}"
+                            FontSize="14"
+                            CornerRadius="12"
+                            HeightRequest="48"
+                            Clicked="BtnSobre_Clicked"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
