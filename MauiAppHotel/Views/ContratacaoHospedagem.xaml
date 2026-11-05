@@ -117,6 +117,7 @@
 
                             <Picker x:Name="pck_quarto"
                                     Title="Selecione sua Acomodação"
+                                    ItemDisplayBinding="{Binding Descricao}"
                                     TitleColor="{StaticResource Gray300}"
                                     TextColor="{StaticResource White}"/>
 
@@ -141,14 +142,16 @@
                                    FontAttributes="Bold"
                                    TextColor="{StaticResource Gray100}"/>
 
-                            <VerticalStackLayout Spacing="5">
+                            <VerticalStackLayout Spacing="5" >
 
                                 <Label Text="Check-in:"
                                        TextColor="{StaticResource Gray200}"/>
 
                                 <DatePicker x:Name="dtpck_checkin"
                                             Format="dd/MM/yyyy"
-                                            TextColor="{StaticResource White}"/>
+                                            TextColor="{StaticResource White}"
+                                            HorizontalOptions="Center"
+                                            DateSelected="dtpck_checkin_DateSelected"/>
 
                             </VerticalStackLayout>
 
@@ -159,7 +162,8 @@
 
                                 <DatePicker x:Name="dtpck_checkout"
                                             Format="dd/MM/yyyy"
-                                            TextColor="{StaticResource White}"/>
+                                            TextColor="{StaticResource White}"                                
+                                            HorizontalOptions="Center"/>
 
                             </VerticalStackLayout>
 
@@ -173,7 +177,8 @@
                             FontAttributes="Bold"
                             FontSize="16"
                             CornerRadius="12"
-                            HeightRequest="52"/>
+                            HeightRequest="52"
+                            Clicked="Button_Clicked"/>
 
                     <Button Text="Sobre o aplicativo"
                             BackgroundColor="{StaticResource Gray600}"
